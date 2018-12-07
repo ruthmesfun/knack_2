@@ -1,0 +1,11 @@
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :question_id, value: @question.id %>
+  <div class="form-group <%= 'field-error' if !flash[:errors].nil? %>">
+    <%= f.label :statement, "Comment" %>
+    <%= f.text_area :statement, class: "form-control" %>
+    <% if !flash[:errors].nil? %>
+    <p class="error-desc">Comment <%= flash[:errors]["statement"].first %></p>
+    <% end  %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
+<% end  %>

@@ -1,0 +1,38 @@
+<div class="row pad-50">
+  <div class="col-md-8">
+  <%= form_for @question do |f| %>
+    <div class="form-group <%= 'field-error' if !flash[:errors].nil? %>">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+      <% if !flash[:errors].nil? %>
+        <% if !flash[:errors]["title"].nil? %>
+          <p class="error-desc">Title <%= flash[:errors]["title"].first %></p>
+        <% end %>
+      <% end  %>
+    </div>
+    <div class="form-group <%= 'field-error' if !flash[:errors].nil? %>">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control"  %>
+      <% if !flash[:errors].nil? %>
+        <% if !flash[:errors]["description"].nil? %>
+          <p class="error-desc">Description <%= flash[:errors]["description"].first %></p>
+        <% end %>
+      <% end  %>
+    </div>
+    <div class="form-group <%= 'field-error' if !flash[:errors].nil? %>">
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, @categories, :id, :title,{prompt: "Select a Category"}, {class: "custom-select"} %>
+      <% if !flash[:errors].nil? %>
+        <% if !flash[:errors]["category_id"].nil? %>
+          <p class="error-desc">Category <%= flash[:errors]["category_id"].first %></p>
+        <% end %>
+      <% end  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :helpful_filter, "Helpful Filter", class: "form-check-label" %>
+      <%= f.check_box :helpful_filter %>
+    </div>
+    <%= f.submit "Add Question", class:"btn btn-secondary"%>
+  <% end  %>
+  </div>
+</div>

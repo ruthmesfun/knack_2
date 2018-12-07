@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commenter_id: one
+  question: one
+  solution: false
+  votes: 1
+  statement: MyText
+  approachability_rating: 1
+
+two:
+  commenter_id: two
+  question: two
+  solution: false
+  votes: 1
+  statement: MyText
+  approachability_rating: 1

@@ -1,0 +1,23 @@
+<h1> <%=@category.title%> Questions</h1>
+
+<% if @category.questions.empty? %>
+  <h4 class="pad-50">No Questions Found</h4>
+<% else %>
+  <% @category.questions.each do |question| %>
+    <div class="question-list-view">
+      <h4><%= link_to question.title, question %></h4>
+      <div class="info">
+        <ul>
+          <li><span>Comments:</span> <%= question.comments.count %></li>
+          <li><span>Created By:</span> <%= link_to question.author.username, user_path(question.author) %></li>
+          <li><span>Posted:</span> <%= question.created_human_time %></li>
+          <% if question.comments.count > 1 %>
+            <li><span>Last Commented:</span> <%= question.comments.last.created_human_time %></li>
+          <% else %>
+            <li><span>No Comments</span></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end  %>

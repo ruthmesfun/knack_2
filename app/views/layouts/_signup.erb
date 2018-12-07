@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Sign up</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign up here!e</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<%= form_for @user do |f| %>
+    <div class="form-group">
+     <%= f.label :name%>
+     <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+     <%= f.label :username%>
+     <%= f.text_field :username, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :password%>
+     <%= f.text_field :password, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :image%>
+     <%= f.text_field :image, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :experience_level%>
+     <%= f.collection_select :experience_level, User::EXPERIENCE_LEVELS, :to_s, :to_s, class: "form-control" %>
+     </div>
+     </div>
+    <div class="modal-footer">
+     <%= f.submit "Sign up!", class:"btn btn-primary"%>
+</div>
+<% end %>
+      
+    </div>
+  </div>
+</div>

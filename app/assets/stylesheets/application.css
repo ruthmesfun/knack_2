@@ -1,0 +1,304 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background-color: #fbfbfb;
+}
+
+.small_font{
+
+  font-size: 75%;
+}
+
+h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 5px solid #000;
+}
+
+.profile_image{
+  width: 100%;
+  height: 100%;
+}
+a {
+  -webkit-transition: all .25s ease-in-out;
+-moz-transition: all .25s ease-in-out;
+-ms-transition: all .25s ease-in-out;
+-o-transition: all .25s ease-in-out;
+transition: all .25s ease-in-out;
+}
+
+.main-content {
+  padding: 100px 0;
+}
+
+footer {
+  padding: 50px 0;
+  background-color: #aaa;
+  color: #fff;
+  text-align: center;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pad-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/********* NAVBAR *********/
+.navbar {
+  background-color: #eee;
+  position: relative;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .5);
+   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .5);
+   position: fixed;
+   z-index: 1000;
+   width: 100%
+
+}
+
+.homepage .navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar-brand {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  margin-bottom: -3px;
+}
+
+/********* WELCOME **********/
+.homepage {
+  background-color: #000;
+}
+
+.welcome {
+  background-image: url(welcome-bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.welcome .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0,0,0,.75);
+}
+
+.welcome .info h1 {
+  font-size: 3em;
+  margin: 56px 0 0 0;
+  border-color: #fff;
+}
+
+.welcome .info p {
+  font-size: 1.5em;
+  margin: 15px 0 25px;
+}
+/********** ERRRORS **********/
+.field-error .form-control, .field-error .custom-select {
+  border-color: #900;
+}
+
+p.error-desc {
+  color: #900;
+  font-size: .8em;
+  font-style: italic;
+}
+
+/********** ALL QUESTIONS *********/
+.question-list-view {
+  padding: 25px 0;
+  border-bottom: 2px solid #eee;
+}
+
+.question-list-view:last-of-type {
+  border-bottom: 0;
+}
+
+.question-list-view h4 {
+  margin-top: 20px;
+}
+
+.question-list-view .info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.question-list-view .info li {
+  display: inline-block;
+  font-size: .8em;
+  margin: 5px;
+}
+
+.question-list-view .info li:first-of-type {
+  padding-left: 0;
+}
+
+.question-list-view .info li:last-of-type {
+  padding-right: 0;
+}
+
+.question-list-view .info li span {
+  font-weight: 700;
+}
+
+/********** VIEW QUESTION **********/
+.question-view {
+  padding-bottom: 50px;
+  border-bottom: 2px solid #eee;
+}
+
+.question-view h1 {
+  display: block;
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: 25px;
+}
+
+.question-view h4 {
+  font-size: 1em;
+}
+
+.question-view p {
+  margin-bottom: 0;
+  padding: 25px 0;
+}
+
+.solution-list {
+  border-bottom: 2px solid #eee;
+}
+
+.new-comment {
+  border-bottom: 2px solid #eee;
+}
+
+.comment-item {
+  padding: 20px 0 25px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 2px;
+}
+
+.comment-item:last-of-type {
+  border-bottom: 0;
+}
+
+.comment-item li {
+  display: inline-block;
+  vertical-align: top;
+  font-size: .8em;
+  margin: 5px;
+}
+
+.comment-item li:first-of-type {
+  padding-left: 0;
+}
+
+.comment-item li:last-of-type {
+  padding-right: 0;
+}
+
+.comment-item li span {
+  font-weight: 700;
+}
+
+.comment-item li span.c-author {
+  position: relative;
+}
+
+.comment-item li span.c-author small {
+  opacity: 0;
+  font-size: 0;
+  -webkit-transition: all .25s ease-in-out;
+-moz-transition: all .25s ease-in-out;
+-ms-transition: all .25s ease-in-out;
+-o-transition: all .25s ease-in-out;
+transition: all .25s ease-in-out;
+}
+
+.comment-item li span.c-author:hover small {
+  opacity: 1;
+  font-size: .8em;
+}
+
+.comment-item .vote-btns form {
+  display: inline-block;
+}
+
+.comment-item .button_to {
+  display: inline-block;
+}
+
+.profile_pic{
+  display: inline-block;
+  border-radius: 50%;
+}
+.profile_image{
+  width: 5%;
+  height: 5%;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.question-view .profile_image{
+  width: 3%;
+  height: 3%;
+}
+
+.navbar-nav{
+  width: 100%;
+}
+
+.nav-item.right_start{
+  margin-left: auto;
+}
+
+.logout{
+  font-size: 0.15em;
+  display: flex;
+  align-items: center;
+}
+
+.btn-all{
+  background-color: #565254;
+}
+
+.icon{
+  color: chocolate;
+}

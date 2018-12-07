@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Knack</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Open+Sans:400,700" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "layouts/nav" %>
+
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+
+    <%#MODAL Login-------------------------------------------------------------------%>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h3> Welcome back! </h3>
+             <p class= "small_font">Aren't a member yet? <%= link_to 'Click Here', new_user_path %></p>
+         </div>
+         <div class="modal-body">
+           <%= form_for :session, :url => login_path do |f| %>
+               <div class="form-group">
+               <%= f.label :username%>
+               <%= f.text_field :username, class: "form-control" %>
+               </div>
+               <div class="form-group">
+               <%= f.label :password%>
+               <%= f.text_field :password, class: "form-control" %>
+               </div>
+               <%= f.submit 'Log in', class: "btn btn-primary"%>
+             <% end %>
+         </div>
+       </div>
+
+     </div>
+    </div>
+
+
+
+  </body>
+</html>

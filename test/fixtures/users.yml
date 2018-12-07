@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  username: MyString
+  password: MyString
+  approchability_rating: 1
+  image: MyString
+  experience_level: MyString
+
+two:
+  name: MyString
+  username: MyString
+  password: MyString
+  approchability_rating: 1
+  image: MyString
+  experience_level: MyString

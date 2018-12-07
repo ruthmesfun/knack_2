@@ -1,0 +1,31 @@
+
+<div class="container">
+<div class="col-6">
+<%= form_for @user do |f| %>
+    <div class="form-group">
+     <%= f.label :name%>
+     <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+     <%= f.label :username%>
+     <%= f.text_field :username, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :password%>
+     <%= f.password_field :password, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :image%>
+     <%= f.text_field :image, class: "form-control" %>
+     </div>
+    <div class="form-group">
+     <%= f.label :experience_level%>
+     <%= f.collection_select :experience_level, User::EXPERIENCE_LEVELS, :to_s, :to_s, class: "form-control" %>
+     </div>
+     </div>
+     <%= f.submit "Sign up!"%>
+</div>
+<% end %>
+</div>
+
+    </div>

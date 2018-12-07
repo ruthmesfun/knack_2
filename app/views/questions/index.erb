@@ -1,0 +1,34 @@
+<% if params[:q] %>
+  <h1>Searched Questions</h1>
+  <div class="pad-50">
+    <p>Search results for "<%= params[:q] %>"</p>
+    <a href="<%= questions_path %>" class="btn btn-secondary">Back To All Questions</a>
+  </div>
+<% else %>
+  <h1>All Questions</h1>
+<% end %>
+
+<%= render "layouts/search" %>
+
+<% if @questions.empty? %>
+  <h4>No Results Found</h4>
+<% else %>
+  <% @questions.each do |question| %>
+    <div class="question-list-view">
+      <h4><%= link_to question.title, question %></h4>
+      <div class="info">
+        <ul>
+          <li><span>Category:</span> <%= question.category.title %></li>
+          <li><span>Comments:</span> <%= question.comments.count %></li>
+          <li><span>Created By:</span> <%= link_to question.author.username, user_path(question.author) %></li>
+          <li><span>Posted:</span> <%= question.created_human_time %></li>
+          <% if question.comments.count > 1 %>
+            <li><span>Last Commented:</span> <%= question.comments.last.created_human_time %></li>
+          <% else %>
+            <li><span>No Comments</span></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>
