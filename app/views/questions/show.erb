@@ -22,21 +22,21 @@
           <li><span>Votes:</span> <%= solution.votes %></li>
         </ul>
 
-        <%if solution.commenter != current_user%>
-          <div class="vote-btns">
+        <div class="vote-btns">
+          <%if solution.commenter != current_user%>
             <%= button_to "Upvote", comment_path(solution), params: {comment: {votes: 1}}, method: :patch, class: "btn btn-secondary" %>
             <%= button_to "Downvote", comment_path(solution), params: {comment: {votes: -1}}, method: :patch, class: "btn btn-secondary" %>
             <%= button_to "Approachable", comment_path(solution), params: {comment: {approachability_rating: 1}}, method: :patch, class: "btn btn-secondary" %>
             <%= button_to "Disrespectful", comment_path(solution), params: {comment: {approachability_rating: -1}}, method: :patch, class: "btn btn-secondary" %>
-          </div>
-        <%end%>
+          <%end%>
+          <% if @question.author == current_user && current_user != solution.commenter %>
+            <%= button_to "Remove Solution", comment_path(solution), params: {comment: {question_id: @question.id, solution: false}}, method: :patch,class: "btn btn-danger" %>
+          <% end %>
+        </div>
 
         <% if solution.commenter == current_user %>
           <%= link_to "Edit", edit_comment_path(solution), class: "btn btn-secondary" %>
           <%= link_to "Delete", comment_path(solution), class: "btn btn-secondary", method: :delete %>
-          <% if @question.author == current_user %>
-            <%= button_to "Remove Solution", comment_path(solution), params: {comment: {question_id: @question.id, solution: false}}, method: :patch,class: "btn btn-danger" %>
-          <% end %>
         <%end%>
 
       </div>
@@ -60,21 +60,23 @@
           <li><span>Votes:</span> <%= comment.votes %></li>
         </ul>
 
-        <%if comment.commenter != current_user%>
-          <div class="vote-btns">
-            <%= button_to "Upvote", comment_path(comment), params: {comment: {votes: 1}}, method: :patch, class: "btn btn-secondary btn-all" %>
-            <%= button_to "Downvote", comment_path(comment), params: {comment: {votes: -1}}, method: :patch, class: "btn-all btn btn-secondary " %>
-            <%= button_to "Approachable", comment_path(comment), params: {comment: {approachability_rating: 1}}, method: :patch, class: "btn btn-secondary" %>
-            <%= button_to "Disrespectful", comment_path(comment), params: {comment: {approachability_rating: -1}}, method: :patch, class: "btn btn-secondary" %>
-          </div>
-        <%end%>
+        <div class="vote-btns">
+          <%if comment.commenter != current_user%>
+          <%= button_to "Upvote", comment_path(comment), params: {comment: {votes: 1}}, method: :patch, class: "btn btn-secondary btn-all" %>
+          <%= button_to "Downvote", comment_path(comment), params: {comment: {votes: -1}}, method: :patch, class: "btn-all btn btn-secondary " %>
+          <%= button_to "Approachable", comment_path(comment), params: {comment: {approachability_rating: 1}}, method: :patch, class: "btn btn-secondary" %>
+          <%= button_to "Disrespectful", comment_path(comment), params: {comment: {approachability_rating: -1}}, method: :patch, class: "btn btn-secondary" %>
+          <%end%>
+          <% if @question.author == current_user && current_user != comment.commenter %>
+            <%= button_to "Add Solution", comment_path(comment), params: {comment: {question_id: @question.id, solution: true}}, method: :patch,class: "btn btn-success" %>
+          <% end %>
+        </div>
+
+
 
         <% if comment.commenter == current_user %>
           <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-secondary" %>
           <%= link_to "Delete", comment_path(comment), class: "btn btn-secondary", method: :delete %>
-          <% if @question.author == current_user %>
-            <%= button_to "Add Solution", comment_path(comment), params: {comment: {question_id: @question.id, solution: true}}, method: :patch,class: "btn btn-success" %>
-          <% end %>
         <%end%>
 
       </div>
