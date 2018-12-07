@@ -209,6 +209,10 @@ p.error-desc {
   border-bottom: 2px solid #eee;
 }
 
+.new-comment h2 {
+  margin-bottom: 25px;
+}
+
 .comment-item {
   padding: 20px 0 25px;
   border-bottom: 2px solid #eee;
