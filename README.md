@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # KNACK - StackOverflow for beginners
-=======
-**KNACK**
 
 Knack is a stackoverflow for beginners. You are able to ask questions and answer other student's questions. 
 
@@ -11,5 +8,11 @@ Knack is a stackoverflow for beginners. You are able to ask questions and answer
 2. Profile and announcement board. 
 3. Authentication through github using OAuth
 
-https://www.youtube.com/watch?v=EsMkP4iMhJg&t=26s
->>>>>>> c80678119c57fd3322a94f6913f46123d18b31d2
+Demo: https://youtu.be/8oQ7zxVJ-ZI
+
+-- STEPS TO USE KNACK --
+1. fork and then clone knack_2
+2. cd knack_2
+3. bundle install 
+4. use `rails c` in the terminal 
+5. go to localhost:3000
